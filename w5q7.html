@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form with Constraints</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form action="#" method="post">
+
+  <!-- Text Inputs -->
+  Name: <input type="text" name="name" required placeholder="Enter your full name"><br><br>
+  Password: <input type="password" name="password" required minlength="6" placeholder="Min 6 characters"><br><br>
+  Email: <input type="email" name="email" required placeholder="example@mail.com"><br><br>
+  Age: <input type="number" name="age" min="1" max="120" required><br><br>
+  Phone: <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="10-digit number"><br><br>
+  Website: <input type="url" name="website" placeholder="https://example.com"><br><br>
+  Search: <input type="search" name="search" placeholder="Search here"><br><br>
+
+  <!-- Date/Time Inputs -->
+  Birth Date: <input type="date" name="birthdate" max="2026-12-31"><br><br>
+  Appointment Time: <input type="time" name="time"><br><br>
+  Meeting: <input type="datetime-local" name="meeting"><br><br>
+  Birth Month: <input type="month" name="birthmonth"><br><br>
+  Week of Year: <input type="week" name="week"><br><br>
+
+  <!-- Color and Range -->
+  Favorite Color: <input type="color" name="color"><br><br>
+  Satisfaction Level: <input type="range" name="satisfaction" min="0" max="10"><br><br>
+
+  <!-- Choice Inputs -->
+  Gender:
+  <input type="radio" name="gender" value="male" required> Male
+  <input type="radio" name="gender" value="female" required> Female
+  <input type="radio" name="gender" value="other"> Other
+  <br><br>
+
+  Hobbies:
+  <input type="checkbox" name="hobbies" value="reading"> Reading
+  <input type="checkbox" name="hobbies" value="sports"> Sports
+  <input type="checkbox" name="hobbies" value="music"> Music
+  <br><br>
+
+  <!-- File input -->
+  Upload Resume: <input type="file" name="resume" accept=".pdf,.doc,.docx"><br><br>
+
+  <!-- Hidden input -->
+  <input type="hidden" name="formId" value="regForm123">
+
+  <!-- Buttons -->
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+
+</form>
+
+</body>
+</html>
