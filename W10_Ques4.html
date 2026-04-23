@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Page Enhancements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+
+        .animate {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Web Page with Enhancements</h2>
+
+    <img id="myImage" src="image1.jpg" alt="Image">
+
+    <br><br>
+
+    <select onchange="goToPage(this.value)">
+        <option value="">Select a Page</option>
+        <option value="https://www.google.com">Google</option>
+        <option value="https://www.wikipedia.org">Wikipedia</option>
+        <option value="https://www.youtube.com">YouTube</option>
+    </select>
+
+    <script>
+        let img = document.getElementById("myImage");
+
+        img.onmouseover = function () {
+            img.src = "image2.jpg";
+        };
+
+        img.onmouseout = function () {
+            img.src = "image1.jpg";
+        };
+
+        img.onclick = function () {
+            img.classList.add("animate");
+
+            setTimeout(function () {
+                img.classList.remove("animate");
+            }, 500);
+        };
+
+        function goToPage(page) {
+            if (page !== "") {
+                window.location.href = page;
+            }
+        }
+    </script>
+
+</body>
+</html>

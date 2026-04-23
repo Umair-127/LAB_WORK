@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+</head>
+<body>
+    <h2>Display Calendar</h2>
+    <input type="number" id="year" placeholder="Enter year">
+    <button onclick="showCalendar()">Show Calendar</button>
+    <div id="output"></div>
+
+    <script>
+        function showCalendar() {
+            let year = document.getElementById("year").value;
+            let output = "";
+
+            for (let month = 0; month < 12; month++) {
+                let firstDay = new Date(year, month, 1).getDay();
+                let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                let monthName = new Date(year, month).toLocaleString('default', { month: 'long' });
+
+                output += "<h3>" + monthName + " " + year + "</h3>";
+                output += "<pre>Sun Mon Tue Wed Thu Fri Sat\n";
+
+                for (let i = 0; i < firstDay; i++) {
+                    output += "    ";
+                }
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    output += (day < 10 ? " " + day : day) + "  ";
+
+                    if ((firstDay + day) % 7 === 0) {
+                        output += "\n";
+                    }
+                }
+
+                output += "</pre><br>";
+            }
+
+            document.getElementById("output").innerHTML = output;
+        }
+    </script>
+</body>
+</html>
