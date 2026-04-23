@@ -1,0 +1,24 @@
+catalog {
+    display: block;
+    font-family: Arial;
+}
+
+cd {
+    display: block;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+title {
+    display: block;
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
+
+artist, country, price {
+    display: block;
+    margin-left: 10px;
+}
