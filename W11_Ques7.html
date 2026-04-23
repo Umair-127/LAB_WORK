@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar Selector</title>
+</head>
+<body>
+
+<h2>Select Month & Year</h2>
+
+<select id="month">
+    <option value="0">January</option>
+    <option value="1">February</option>
+    <option value="2">March</option>
+    <option value="3">April</option>
+    <option value="4">May</option>
+    <option value="5">June</option>
+    <option value="6">July</option>
+    <option value="7">August</option>
+    <option value="8">September</option>
+    <option value="9">October</option>
+    <option value="10">November</option>
+    <option value="11">December</option>
+</select>
+
+<select id="year">
+    <option>2023</option>
+    <option>2024</option>
+    <option>2025</option>
+    <option>2026</option>
+</select>
+
+<button onclick="showCalendar()">Show Calendar</button>
+
+<div id="output"></div>
+
+<script>
+function showCalendar() {
+    let month = document.getElementById("month").value;
+    let year = document.getElementById("year").value;
+
+    let firstDay = new Date(year, month, 1).getDay();
+    let daysInMonth = new Date(year, Number(month) + 1, 0).getDate();
+
+    let monthName = new Date(year, month).toLocaleString('default', { month: 'long' });
+
+    let cal = "<h3>" + monthName + " " + year + "</h3>";
+    cal += "<pre>Sun Mon Tue Wed Thu Fri Sat\n";
+
+    for (let i = 0; i < firstDay; i++) {
+        cal += "    ";
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        cal += (day < 10 ? " " + day : day) + "  ";
+        if ((firstDay + day) % 7 === 0) cal += "\n";
+    }
+
+    cal += "</pre>";
+
+    document.getElementById("output").innerHTML = cal;
+}
+</script>
+
+</body>
+</html>
